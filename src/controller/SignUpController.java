@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import utility.ConnectionManager;
 
-
-
 @WebServlet(urlPatterns= {"/signup"})
 public class SignUpController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,6 +27,8 @@ public class SignUpController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Sign up Controller");
 		// Fill your code here
+		ConnectionManager cm = new ConnectionManager();
+		cm.getConnection();		
 		RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/signupView.jsp");
 		rd.forward(request,response);
 	}
@@ -38,5 +38,6 @@ public class SignUpController extends HttpServlet {
 		doGet(request,response);
 		
 	}
+	
 
 }
